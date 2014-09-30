@@ -8,6 +8,7 @@
         android:layout_height="wrap_content" >
 
         <!-- 上面的概述文字 -->
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,17 +22,26 @@
                 android:background="@android:color/darker_gray" >
 
                 <TextView
+                    android:id="@+id/tv_summary_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="这些东西是textview里的" />
+
+                <Button
+                    android:id="@+id/btn_change_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_summary_text"
+                    android:text="点击切换view" />
             </RelativeLayout>
 
             <!-- 视图表报 -->
+
             <com.test.testdrawthree.CustomView
                 android:id="@+id/myview"
-                android:layout_below="@id/rl_barchart_text"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" >
+                android:layout_height="250dp"
+                android:layout_below="@id/rl_barchart_text" >
             </com.test.testdrawthree.CustomView>
         </RelativeLayout>
     </com.test.testdrawthree.MyScrollView>

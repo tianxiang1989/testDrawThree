@@ -116,9 +116,9 @@ public class ChartView4CustomView extends View {
 		this.yValueList = yValueList;
 		initPaint();// 初始化画笔
 		if (calXNameMaxLeng() > 4) {// TODO_Q 这里只考虑了一行两行的情况 [因为实际x名称数据最多8位]
-			marginBottom = (int) ((getFontHeight(textChartPaint) + changeDp(2)) * 2);
+			marginBottom = (int) ((getFontHeight(textXYPaint) + changeDp(2)) * 2);
 		} else {
-			marginBottom = (int) ((getFontHeight(textChartPaint) + changeDp(2)));
+			marginBottom = (int) ((getFontHeight(textXYPaint) + changeDp(2)));
 		}
 //		viewHeight = changeDp(height);
 		viewHeight=height;
@@ -142,8 +142,8 @@ public class ChartView4CustomView extends View {
 		drawYRelativeAxis(canvas);// 画水平的分割线
 		drawXAxisValue(canvas);// 画x轴上显示的数据
 		drawJoinLine(canvas);// 画左右点的连接线
-		drawChart(canvas);// 画报表图
 		drawShadowPath(canvas);// 画折线图的阴影
+		drawChart(canvas);// 画报表图
 		// drawPoint(canvas);// 画数值点
 	}
 
@@ -174,7 +174,8 @@ public class ChartView4CustomView extends View {
 		// 报表文字的画笔
 		textChartPaint = new TextPaint();
 		textChartPaint.setTextSize(changeDp(12));
-		textChartPaint.setColor(0xff1ea8ff);
+		textChartPaint.setColor(0xff000000);
+//		textChartPaint.setColor(0xff1ea8ff);
 
 		// 连接左右两点的线
 		joinLinePaint = new Paint();
@@ -466,18 +467,18 @@ public class ChartView4CustomView extends View {
 				if (drawUpTextIndex == i) {
 					if (i == 0) {
 						canvas.drawText(yValueList.get(i) + "", xAxisList.get(i), yAxisList.get(i)
-								- changeDp(4), axisPaint);
+								- changeDp(4), textChartPaint);
 					} else if (i != xAxisList.size() - 1) {
 						canvas.drawText(yValueList.get(i) + "",
-								xAxisList.get(i) - axisPaint.measureText(yValueList.get(i) + "")
-										/ 2f, yAxisList.get(i) - changeDp(4), axisPaint);
+								xAxisList.get(i) - textChartPaint.measureText(yValueList.get(i) + "")
+										/ 2f, yAxisList.get(i) - changeDp(4), textChartPaint);
 					} else if (i == xAxisList.size() - 1) {
 						canvas.drawText(
 								yValueList.get(xAxisList.size() - 1) + "",
 								xAxisList.get(xAxisList.size() - 1)
-										- axisPaint.measureText(yValueList.get(xAxisList.size() - 1)
+										- textChartPaint.measureText(yValueList.get(xAxisList.size() - 1)
 												+ ""), yAxisList.get(xAxisList.size() - 1)
-										- changeDp(4), axisPaint);
+										- changeDp(4), textChartPaint);
 					}
 				}
 				break;
@@ -485,19 +486,19 @@ public class ChartView4CustomView extends View {
 				if (drawUpTextIndex == i) {
 					if (i == 0) {
 						canvas.drawText(yValueList.get(i) + "", xAxisList.get(i), yAxisList.get(i)
-								+ changeDp(0) + getFontHeight(axisPaint), axisPaint);
+								+ changeDp(0) + getFontHeight(textChartPaint), textChartPaint);
 					} else if (i != xAxisList.size() - 1) {
 						canvas.drawText(yValueList.get(i) + "",
-								xAxisList.get(i) - axisPaint.measureText(yValueList.get(i) + "")
+								xAxisList.get(i) - textChartPaint.measureText(yValueList.get(i) + "")
 										/ 2f, yAxisList.get(i) + changeDp(0)
-										+ getFontHeight(axisPaint), axisPaint);
+										+ getFontHeight(textChartPaint), textChartPaint);
 					} else if (i == xAxisList.size() - 1) {
 						canvas.drawText(
 								yValueList.get(xAxisList.size() - 1) + "",
 								xAxisList.get(xAxisList.size() - 1)
-										- axisPaint.measureText(yValueList.get(xAxisList.size() - 1)
+										- textChartPaint.measureText(yValueList.get(xAxisList.size() - 1)
 												+ ""), yAxisList.get(xAxisList.size() - 1)
-										+ changeDp(0) + getFontHeight(axisPaint), axisPaint);
+										+ changeDp(0) + getFontHeight(textChartPaint), textChartPaint);
 					}
 				}
 				break;

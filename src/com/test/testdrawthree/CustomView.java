@@ -60,11 +60,18 @@ public class CustomView extends FrameLayout {
 	 * @param columnYList y轴数据
 	 */
 	public void setData(List<String> columnXList, List<Float> columnYList) {
+		clearChildView();
 		this.columnXList = columnXList;
 		this.columnYList = columnYList;
 		v1 = new ChartView4CustomView(context, columnXList, columnYList, getHeight());
 		initRightChart();// 初始化右侧报表图
 		initLeftText();// 初始化左侧的刻度列
+	}
+
+	/**清除子view*/
+	private void clearChildView() {
+		ll_view_right.removeAllViews();
+		rl_view_left.removeAllViews();
 	}
 
 	/**初始化右侧的报表*/
