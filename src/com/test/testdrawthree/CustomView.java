@@ -19,6 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 对外的自定义view
+ * 
+ * @author liuxiuquan
+ * 2014-9-30
+ */
 public class CustomView extends FrameLayout {
 	/** 打印log信息时的标识 */
 	private final static String TAG = CustomView.class.getSimpleName();
