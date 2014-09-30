@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.test.testdrawthree.MyScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <!-- 上面的概述文字 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rl_barchart_text"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@android:color/darker_gray" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="这些东西是textview里的" />
+            </RelativeLayout>
+
+            <!-- 视图表报 -->
+            <com.test.testdrawthree.CustomView
+                android:id="@+id/myview"
+                android:layout_below="@id/rl_barchart_text"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" >
+            </com.test.testdrawthree.CustomView>
+        </RelativeLayout>
+    </com.test.testdrawthree.MyScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 视图表报 -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_barchart_out"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="10dp" >
+
+    <!-- android:background="@android:color/holo_blue_bright" -->
+
+    <LinearLayout
+        android:id="@+id/rl_view_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/hsv_right_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/rl_view_left"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_view_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_orange_dark"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>
