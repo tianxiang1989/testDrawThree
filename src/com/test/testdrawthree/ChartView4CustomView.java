@@ -21,11 +21,11 @@ import android.util.TypedValue;
 import android.view.View;
 
 /**
- * 折线图view [这个被封装在CustomView中了，请勿单独调用]
+ * 折线图view [这个被封装在CustomView中了，请勿单独调用 @see {@link CustomView]
  * @author liuxiuquan 2014-9-19
  * 
  * 注：这个view如果数据源如果改变了，不能靠postInvalidate();
- * 只能通过requestLayout()刷新，因为宽度改变了，postInvalidate()不会调用onMeasure方法
+ * 只能通过requestLayout()刷新，因为宽度改变了，postInvalidate()不会调用onMeasure方法}
  */
 public class ChartView4CustomView extends View {
 	/** 打印log信息时的标识 */
@@ -120,8 +120,8 @@ public class ChartView4CustomView extends View {
 		} else {
 			marginBottom = (int) ((getFontHeight(textXYPaint) + changeDp(2)));
 		}
-//		viewHeight = changeDp(height);
-		viewHeight=height;
+		// viewHeight = changeDp(height);
+		viewHeight = height;
 		calYAxisList();// 计算y值的数据
 	}
 
@@ -175,7 +175,7 @@ public class ChartView4CustomView extends View {
 		textChartPaint = new TextPaint();
 		textChartPaint.setTextSize(changeDp(12));
 		textChartPaint.setColor(0xff000000);
-//		textChartPaint.setColor(0xff1ea8ff);
+		// textChartPaint.setColor(0xff1ea8ff);
 
 		// 连接左右两点的线
 		joinLinePaint = new Paint();
@@ -469,16 +469,18 @@ public class ChartView4CustomView extends View {
 						canvas.drawText(yValueList.get(i) + "", xAxisList.get(i), yAxisList.get(i)
 								- changeDp(4), textChartPaint);
 					} else if (i != xAxisList.size() - 1) {
-						canvas.drawText(yValueList.get(i) + "",
-								xAxisList.get(i) - textChartPaint.measureText(yValueList.get(i) + "")
-										/ 2f, yAxisList.get(i) - changeDp(4), textChartPaint);
+						canvas.drawText(
+								yValueList.get(i) + "",
+								xAxisList.get(i)
+										- textChartPaint.measureText(yValueList.get(i) + "") / 2f,
+								yAxisList.get(i) - changeDp(4), textChartPaint);
 					} else if (i == xAxisList.size() - 1) {
 						canvas.drawText(
 								yValueList.get(xAxisList.size() - 1) + "",
 								xAxisList.get(xAxisList.size() - 1)
-										- textChartPaint.measureText(yValueList.get(xAxisList.size() - 1)
-												+ ""), yAxisList.get(xAxisList.size() - 1)
-										- changeDp(4), textChartPaint);
+										- textChartPaint.measureText(yValueList.get(xAxisList
+												.size() - 1) + ""),
+								yAxisList.get(xAxisList.size() - 1) - changeDp(4), textChartPaint);
 					}
 				}
 				break;
@@ -488,17 +490,20 @@ public class ChartView4CustomView extends View {
 						canvas.drawText(yValueList.get(i) + "", xAxisList.get(i), yAxisList.get(i)
 								+ changeDp(0) + getFontHeight(textChartPaint), textChartPaint);
 					} else if (i != xAxisList.size() - 1) {
-						canvas.drawText(yValueList.get(i) + "",
-								xAxisList.get(i) - textChartPaint.measureText(yValueList.get(i) + "")
-										/ 2f, yAxisList.get(i) + changeDp(0)
-										+ getFontHeight(textChartPaint), textChartPaint);
+						canvas.drawText(
+								yValueList.get(i) + "",
+								xAxisList.get(i)
+										- textChartPaint.measureText(yValueList.get(i) + "") / 2f,
+								yAxisList.get(i) + changeDp(0) + getFontHeight(textChartPaint),
+								textChartPaint);
 					} else if (i == xAxisList.size() - 1) {
 						canvas.drawText(
 								yValueList.get(xAxisList.size() - 1) + "",
 								xAxisList.get(xAxisList.size() - 1)
-										- textChartPaint.measureText(yValueList.get(xAxisList.size() - 1)
-												+ ""), yAxisList.get(xAxisList.size() - 1)
-										+ changeDp(0) + getFontHeight(textChartPaint), textChartPaint);
+										- textChartPaint.measureText(yValueList.get(xAxisList
+												.size() - 1) + ""),
+								yAxisList.get(xAxisList.size() - 1) + changeDp(0)
+										+ getFontHeight(textChartPaint), textChartPaint);
 					}
 				}
 				break;

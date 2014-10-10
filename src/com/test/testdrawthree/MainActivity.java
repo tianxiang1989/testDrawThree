@@ -38,7 +38,8 @@ public class MainActivity extends Activity {
 		// 模拟网络请求和延时
 		DrawThread th = new DrawThread();
 		th.start();
-
+			
+		//改变数据源
 		Button btn_change_view = (Button) findViewById(R.id.btn_change_view);
 		btn_change_view.setOnClickListener(new OnClickListener() {
 
